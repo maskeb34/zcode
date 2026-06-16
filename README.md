@@ -2,6 +2,9 @@
 
 将 ZCode (zcode.z.ai) Coding Plan 额度转为标准 Anthropic Messages API，支持多账号轮询、
 额度用完自动换号、实时用量监控、后台管理 UI 与鉴权，以及阿里云无痕验证自动续期。
+## 注意注意
+账号需要先登录zcode授权才能成功获取余额
+
 
 ## 快速开始
 
