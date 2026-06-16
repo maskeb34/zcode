@@ -1,0 +1,324 @@
+# model: claude-opus-4.6
+# session_id: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+# total_score:  / 35
+# passrate: 
+
+# Round 1
+[[criterion]]
+name = "user_experience_and_interaction"
+description = "[Implicit] 用户体验与交互质量。1: 交互生硬，缺乏上下文感知，用户需要反复澄清意图；2: 能理解基本意图但交互方式机械，缺少主动引导或反馈；3: 交互流畅，能根据上下文提供适当建议，但缺乏个性化；4: 交互自然，能主动预判用户需求并提供多选项，反馈及时且清晰；5: 交互体验优秀，能精准理解用户意图，主动提供结构化引导，交互过程高效且用户友好。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "task_planning_and_execution_control"
+description = "[Implicit] 任务规划与执行管控能力。1: 无明确规划，直接盲目操作；2: 有简单规划但执行混乱，经常偏离目标；3: 能制定基本计划并按步骤执行，但缺乏异常处理；4: 规划清晰，执行有序，能处理常见异常并调整策略；5: 任务拆解合理，执行路径清晰，有完善的异常处理和回退机制，全程可控可追溯。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "semantic_understanding_and_logical_reasoning"
+description = "[Explicit] 语义理解与逻辑推理能力。1: 误解用户意图，推理逻辑混乱；2: 能理解表面意图但深层含义把握不准，推理有漏洞；3: 准确理解用户意图，推理过程基本正确但缺乏深度；4: 深入理解问题本质，推理链条完整，能发现隐含问题；5: 精准把握问题核心，推理严密且有代码/事实证据支撑，能串联复杂链路并解释因果关系。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "instruction_compliance_and_constraint_adherence"
+description = "[Explicit] 指令遵从与约束保持能力。1: 完全忽略用户指令或约束；2: 只遵循部分指令，遗漏关键约束；3: 基本遵循指令，但在细节处有偏差；4: 严格遵循用户指令和约束，仅在极少数边缘情况有轻微偏离；5: 完全遵从所有显式和隐式指令，在复杂约束下仍能保持行为一致性，测试验证充分。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "engineering_quality_and_completeness"
+description = "[Explicit] 工程化质量与完备性。1: 代码质量差，无错误处理，不可运行；2: 代码能运行但缺少必要的错误处理和边界条件判断；3: 代码质量尚可，有基本错误处理，但缺少测试或文档；4: 代码规范，错误处理完善，有测试覆盖主要场景；5: 代码质量优秀，遵循最佳实践，错误处理完善，测试覆盖核心和边界场景，保持与现有架构和契约的一致性。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "delivery_completeness_and_usability"
+description = "[Implicit] 交付完整性与可用性。1: 只给模糊结论，无实际交付物；2: 有部分交付但缺少关键信息，无法直接使用；3: 交付内容基本完整，但缺少验证说明或影响范围分析；4: 交付清晰完整，包含问题说明、解决方案、验证状态和剩余风险；5: 交付内容可直接被业务/研发使用，清楚说明根因、修改点、验证方式、覆盖范围和后续风险，无需额外解释。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "architecture_boundaries_and_security_compliance"
+description = "[Implicit] 架构边界与安全合规性。1: 大范围重构或绕过现有架构，引入安全风险；2: 改动破坏现有架构边界或引入不必要依赖，安全控制不足；3: 基本沿用现有架构，但改动范围偏大或包含无关代码，安全考虑不充分；4: 改动集中在相关模块，未破坏现有架构和契约，安全控制基本到位；5: 完全复用现有架构模式，改动小而明确，状态语义、数据表更新、事务边界和外部集成风险控制良好，无安全隐患。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+# Round 2
+[[criterion]]
+name = "user_experience_and_interaction"
+description = "[Implicit] 用户体验与交互质量。1: 交互生硬，缺乏上下文感知，用户需要反复澄清意图；2: 能理解基本意图但交互方式机械，缺少主动引导或反馈；3: 交互流畅，能根据上下文提供适当建议，但缺乏个性化；4: 交互自然，能主动预判用户需求并提供多选项，反馈及时且清晰；5: 交互体验优秀，能精准理解用户意图，主动提供结构化引导，交互过程高效且用户友好。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "task_planning_and_execution_control"
+description = "[Implicit] 任务规划与执行管控能力。1: 无明确规划，直接盲目操作；2: 有简单规划但执行混乱，经常偏离目标；3: 能制定基本计划并按步骤执行，但缺乏异常处理；4: 规划清晰，执行有序，能处理常见异常并调整策略；5: 任务拆解合理，执行路径清晰，有完善的异常处理和回退机制，全程可控可追溯。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "semantic_understanding_and_logical_reasoning"
+description = "[Explicit] 语义理解与逻辑推理能力。1: 误解用户意图，推理逻辑混乱；2: 能理解表面意图但深层含义把握不准，推理有漏洞；3: 准确理解用户意图，推理过程基本正确但缺乏深度；4: 深入理解问题本质，推理链条完整，能发现隐含问题；5: 精准把握问题核心，推理严密且有代码/事实证据支撑，能串联复杂链路并解释因果关系。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "instruction_compliance_and_constraint_adherence"
+description = "[Explicit] 指令遵从与约束保持能力。1: 完全忽略用户指令或约束；2: 只遵循部分指令，遗漏关键约束；3: 基本遵循指令，但在细节处有偏差；4: 严格遵循用户指令和约束，仅在极少数边缘情况有轻微偏离；5: 完全遵从所有显式和隐式指令，在复杂约束下仍能保持行为一致性，测试验证充分。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "engineering_quality_and_completeness"
+description = "[Explicit] 工程化质量与完备性。1: 代码质量差，无错误处理，不可运行；2: 代码能运行但缺少必要的错误处理和边界条件判断；3: 代码质量尚可，有基本错误处理，但缺少测试或文档；4: 代码规范，错误处理完善，有测试覆盖主要场景；5: 代码质量优秀，遵循最佳实践，错误处理完善，测试覆盖核心和边界场景，保持与现有架构和契约的一致性。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "delivery_completeness_and_usability"
+description = "[Implicit] 交付完整性与可用性。1: 只给模糊结论，无实际交付物；2: 有部分交付但缺少关键信息，无法直接使用；3: 交付内容基本完整，但缺少验证说明或影响范围分析；4: 交付清晰完整，包含问题说明、解决方案、验证状态和剩余风险；5: 交付内容可直接被业务/研发使用，清楚说明根因、修改点、验证方式、覆盖范围和后续风险，无需额外解释。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "architecture_boundaries_and_security_compliance"
+description = "[Implicit] 架构边界与安全合规性。1: 大范围重构或绕过现有架构，引入安全风险；2: 改动破坏现有架构边界或引入不必要依赖，安全控制不足；3: 基本沿用现有架构，但改动范围偏大或包含无关代码，安全考虑不充分；4: 改动集中在相关模块，未破坏现有架构和契约，安全控制基本到位；5: 完全复用现有架构模式，改动小而明确，状态语义、数据表更新、事务边界和外部集成风险控制良好，无安全隐患。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+# Round 3
+[[criterion]]
+name = "user_experience_and_interaction"
+description = "[Implicit] 用户体验与交互质量。1: 交互生硬，缺乏上下文感知，用户需要反复澄清意图；2: 能理解基本意图但交互方式机械，缺少主动引导或反馈；3: 交互流畅，能根据上下文提供适当建议，但缺乏个性化；4: 交互自然，能主动预判用户需求并提供多选项，反馈及时且清晰；5: 交互体验优秀，能精准理解用户意图，主动提供结构化引导，交互过程高效且用户友好。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "task_planning_and_execution_control"
+description = "[Implicit] 任务规划与执行管控能力。1: 无明确规划，直接盲目操作；2: 有简单规划但执行混乱，经常偏离目标；3: 能制定基本计划并按步骤执行，但缺乏异常处理；4: 规划清晰，执行有序，能处理常见异常并调整策略；5: 任务拆解合理，执行路径清晰，有完善的异常处理和回退机制，全程可控可追溯。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "semantic_understanding_and_logical_reasoning"
+description = "[Explicit] 语义理解与逻辑推理能力。1: 误解用户意图，推理逻辑混乱；2: 能理解表面意图但深层含义把握不准，推理有漏洞；3: 准确理解用户意图，推理过程基本正确但缺乏深度；4: 深入理解问题本质，推理链条完整，能发现隐含问题；5: 精准把握问题核心，推理严密且有代码/事实证据支撑，能串联复杂链路并解释因果关系。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "instruction_compliance_and_constraint_adherence"
+description = "[Explicit] 指令遵从与约束保持能力。1: 完全忽略用户指令或约束；2: 只遵循部分指令，遗漏关键约束；3: 基本遵循指令，但在细节处有偏差；4: 严格遵循用户指令和约束，仅在极少数边缘情况有轻微偏离；5: 完全遵从所有显式和隐式指令，在复杂约束下仍能保持行为一致性，测试验证充分。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "engineering_quality_and_completeness"
+description = "[Explicit] 工程化质量与完备性。1: 代码质量差，无错误处理，不可运行；2: 代码能运行但缺少必要的错误处理和边界条件判断；3: 代码质量尚可，有基本错误处理，但缺少测试或文档；4: 代码规范，错误处理完善，有测试覆盖主要场景；5: 代码质量优秀，遵循最佳实践，错误处理完善，测试覆盖核心和边界场景，保持与现有架构和契约的一致性。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "delivery_completeness_and_usability"
+description = "[Implicit] 交付完整性与可用性。1: 只给模糊结论，无实际交付物；2: 有部分交付但缺少关键信息，无法直接使用；3: 交付内容基本完整，但缺少验证说明或影响范围分析；4: 交付清晰完整，包含问题说明、解决方案、验证状态和剩余风险；5: 交付内容可直接被业务/研发使用，清楚说明根因、修改点、验证方式、覆盖范围和后续风险，无需额外解释。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "architecture_boundaries_and_security_compliance"
+description = "[Implicit] 架构边界与安全合规性。1: 大范围重构或绕过现有架构，引入安全风险；2: 改动破坏现有架构边界或引入不必要依赖，安全控制不足；3: 基本沿用现有架构，但改动范围偏大或包含无关代码，安全考虑不充分；4: 改动集中在相关模块，未破坏现有架构和契约，安全控制基本到位；5: 完全复用现有架构模式，改动小而明确，状态语义、数据表更新、事务边界和外部集成风险控制良好，无安全隐患。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+# Round 4
+[[criterion]]
+name = "user_experience_and_interaction"
+description = "[Implicit] 用户体验与交互质量。1: 交互生硬，缺乏上下文感知，用户需要反复澄清意图；2: 能理解基本意图但交互方式机械，缺少主动引导或反馈；3: 交互流畅，能根据上下文提供适当建议，但缺乏个性化；4: 交互自然，能主动预判用户需求并提供多选项，反馈及时且清晰；5: 交互体验优秀，能精准理解用户意图，主动提供结构化引导，交互过程高效且用户友好。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "task_planning_and_execution_control"
+description = "[Implicit] 任务规划与执行管控能力。1: 无明确规划，直接盲目操作；2: 有简单规划但执行混乱，经常偏离目标；3: 能制定基本计划并按步骤执行，但缺乏异常处理；4: 规划清晰，执行有序，能处理常见异常并调整策略；5: 任务拆解合理，执行路径清晰，有完善的异常处理和回退机制，全程可控可追溯。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "semantic_understanding_and_logical_reasoning"
+description = "[Explicit] 语义理解与逻辑推理能力。1: 误解用户意图，推理逻辑混乱；2: 能理解表面意图但深层含义把握不准，推理有漏洞；3: 准确理解用户意图，推理过程基本正确但缺乏深度；4: 深入理解问题本质，推理链条完整，能发现隐含问题；5: 精准把握问题核心，推理严密且有代码/事实证据支撑，能串联复杂链路并解释因果关系。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "instruction_compliance_and_constraint_adherence"
+description = "[Explicit] 指令遵从与约束保持能力。1: 完全忽略用户指令或约束；2: 只遵循部分指令，遗漏关键约束；3: 基本遵循指令，但在细节处有偏差；4: 严格遵循用户指令和约束，仅在极少数边缘情况有轻微偏离；5: 完全遵从所有显式和隐式指令，在复杂约束下仍能保持行为一致性，测试验证充分。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "engineering_quality_and_completeness"
+description = "[Explicit] 工程化质量与完备性。1: 代码质量差，无错误处理，不可运行；2: 代码能运行但缺少必要的错误处理和边界条件判断；3: 代码质量尚可，有基本错误处理，但缺少测试或文档；4: 代码规范，错误处理完善，有测试覆盖主要场景；5: 代码质量优秀，遵循最佳实践，错误处理完善，测试覆盖核心和边界场景，保持与现有架构和契约的一致性。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "delivery_completeness_and_usability"
+description = "[Implicit] 交付完整性与可用性。1: 只给模糊结论，无实际交付物；2: 有部分交付但缺少关键信息，无法直接使用；3: 交付内容基本完整，但缺少验证说明或影响范围分析；4: 交付清晰完整，包含问题说明、解决方案、验证状态和剩余风险；5: 交付内容可直接被业务/研发使用，清楚说明根因、修改点、验证方式、覆盖范围和后续风险，无需额外解释。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "architecture_boundaries_and_security_compliance"
+description = "[Implicit] 架构边界与安全合规性。1: 大范围重构或绕过现有架构，引入安全风险；2: 改动破坏现有架构边界或引入不必要依赖，安全控制不足；3: 基本沿用现有架构，但改动范围偏大或包含无关代码，安全考虑不充分；4: 改动集中在相关模块，未破坏现有架构和契约，安全控制基本到位；5: 完全复用现有架构模式，改动小而明确，状态语义、数据表更新、事务边界和外部集成风险控制良好，无安全隐患。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+# Round 5
+[[criterion]]
+name = "user_experience_and_interaction"
+description = "[Implicit] 用户体验与交互质量。1: 交互生硬，缺乏上下文感知，用户需要反复澄清意图；2: 能理解基本意图但交互方式机械，缺少主动引导或反馈；3: 交互流畅，能根据上下文提供适当建议，但缺乏个性化；4: 交互自然，能主动预判用户需求并提供多选项，反馈及时且清晰；5: 交互体验优秀，能精准理解用户意图，主动提供结构化引导，交互过程高效且用户友好。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "task_planning_and_execution_control"
+description = "[Implicit] 任务规划与执行管控能力。1: 无明确规划，直接盲目操作；2: 有简单规划但执行混乱，经常偏离目标；3: 能制定基本计划并按步骤执行，但缺乏异常处理；4: 规划清晰，执行有序，能处理常见异常并调整策略；5: 任务拆解合理，执行路径清晰，有完善的异常处理和回退机制，全程可控可追溯。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "semantic_understanding_and_logical_reasoning"
+description = "[Explicit] 语义理解与逻辑推理能力。1: 误解用户意图，推理逻辑混乱；2: 能理解表面意图但深层含义把握不准，推理有漏洞；3: 准确理解用户意图，推理过程基本正确但缺乏深度；4: 深入理解问题本质，推理链条完整，能发现隐含问题；5: 精准把握问题核心，推理严密且有代码/事实证据支撑，能串联复杂链路并解释因果关系。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "instruction_compliance_and_constraint_adherence"
+description = "[Explicit] 指令遵从与约束保持能力。1: 完全忽略用户指令或约束；2: 只遵循部分指令，遗漏关键约束；3: 基本遵循指令，但在细节处有偏差；4: 严格遵循用户指令和约束，仅在极少数边缘情况有轻微偏离；5: 完全遵从所有显式和隐式指令，在复杂约束下仍能保持行为一致性，测试验证充分。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "engineering_quality_and_completeness"
+description = "[Explicit] 工程化质量与完备性。1: 代码质量差，无错误处理，不可运行；2: 代码能运行但缺少必要的错误处理和边界条件判断；3: 代码质量尚可，有基本错误处理，但缺少测试或文档；4: 代码规范，错误处理完善，有测试覆盖主要场景；5: 代码质量优秀，遵循最佳实践，错误处理完善，测试覆盖核心和边界场景，保持与现有架构和契约的一致性。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "delivery_completeness_and_usability"
+description = "[Implicit] 交付完整性与可用性。1: 只给模糊结论，无实际交付物；2: 有部分交付但缺少关键信息，无法直接使用；3: 交付内容基本完整，但缺少验证说明或影响范围分析；4: 交付清晰完整，包含问题说明、解决方案、验证状态和剩余风险；5: 交付内容可直接被业务/研发使用，清楚说明根因、修改点、验证方式、覆盖范围和后续风险，无需额外解释。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""
+
+[[criterion]]
+name = "architecture_boundaries_and_security_compliance"
+description = "[Implicit] 架构边界与安全合规性。1: 大范围重构或绕过现有架构，引入安全风险；2: 改动破坏现有架构边界或引入不必要依赖，安全控制不足；3: 基本沿用现有架构，但改动范围偏大或包含无关代码，安全考虑不充分；4: 改动集中在相关模块，未破坏现有架构和契约，安全控制基本到位；5: 完全复用现有架构模式，改动小而明确，状态语义、数据表更新、事务边界和外部集成风险控制良好，无安全隐患。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 
+rationale = ""

@@ -1,0 +1,58 @@
+# model: claude-opus-4.6
+# session_id: cf59e0d8-9fe7-422b-984d-2e132c802204
+# total_score: 29 / 30
+# passrate: 0.967
+
+[[criterion]]
+name = "semantic_understanding_and_logical_reasoning_root_cause"
+description = "[Explicit] 是否准确理解 query，并定位有代码证据支撑的“关联中”卡住机制。1: 未定位到钉钉文件夹关联链路，只做泛泛猜测；2: 找到目录或同步任务相关代码，但原因判断明显错误；3: 识别到 external_sync_task、占位 symlink、导入异步任务或前端状态展示之一，但没有说明为什么会长期停留“关联中”；4: 能用具体代码链路解释某个真实卡住机制，例如任务没有被创建/提交/重试、PENDING/RUNNING 任务无法收敛、占位目录无法更新目标、失败状态无法暴露等；5: 能完整串联 relate_dingdoc_folder、DingDocImportService、placeholder/symlink、external_sync_task 服务/Runner/Mapper、目录状态查询或前端展示，并说明触发条件、状态流转缺口和重复关联为什么不会推进。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 5
+rationale = "轨迹完整串联了 relate_dingdoc_folder、DingDocImportService、placeholder symlink、ExternalSyncTaskService/Runner/Mapper、RepoDirectoryService 注入 syncTask 和前端“关联中”判断，并指出 stale PENDING 不会被 lazyExpireRunningTasks 处理、重新关联会复用该 PENDING 而不重新提交，因此长期不成功也不失败。该机制能直接解释用户描述。"
+
+[[criterion]]
+name = "task_planning_and_execution_control_investigation_path"
+description = "[Implicit] 是否展示出合理、聚焦的排查路径。1: 基本未读代码或随机搜索；2: 只看单个文件就下结论；3: 能查看 Controller/Service/Mapper 中部分链路；4: 系统排查从接口入口到异步任务、目录节点、状态查询的主要链路；5: 排查顺序清晰，能区分钉钉文件夹关联、新建/已有 namespace、占位目录、任务创建/提交/重试/取消、PENDING/RUNNING/FAILED 状态、前端轮询展示等关键分支，且没有被无关模块带偏。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 5
+rationale = "排查从接口入口、new/existing namespace 分支、external_sync_task 状态机、Runner、Mapper、目录状态查询到前端展示一路展开，还区分了 PENDING/RUNNING、listByRepo/batchLoad、重试和重复关联等关键分支，路径清晰且聚焦。"
+
+[[criterion]]
+name = "engineering_quality_and_completeness_fix"
+description = "[Explicit] 是否实现了能解决卡住状态的修复。1: 没有代码修复；2: 只改前端展示或文案，未处理后端状态流转；3: 修复只覆盖单一症状，缺少幂等、失败收敛、重复关联或重试语义；4: 能针对已定位根因修复主要卡住路径，使目录节点最终变成成功、失败可见/可重试，或被重新调度推进；5: 修复同时保持异步任务状态机、并发幂等、重复关联、取消/重试、心跳/超时、正常钉钉/语雀同步契约的一致性，并避免引入新的长期“关联中”状态。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 5
+rationale = "修复在 submitAndStart 中对既有 PENDING 任务重新提交 runner，并新增 lazyExpireStalePendingTasks 让长期 PENDING 收敛到 FAILED，同时在 listByRepo/batchLoad 等展示路径触发 stale PENDING/RUNNING 清理。该方案让卡住节点能继续推进或失败可见，并保持既有任务状态机、幂等和重试语义。"
+
+[[criterion]]
+name = "architecture_boundaries_and_security_compliance_scope"
+description = "[Implicit] 是否遵守现有架构边界和高风险集成约束。1: 大范围重构或绕过现有同步框架；2: 引入不必要依赖、改动外部钉钉 API 调用方式或破坏现有契约；3: 基本沿用现有服务，但改动范围偏大或包含无关代码 churn；4: 修复集中在 DingDocImportService、ExternalSyncTaskService/Runner/Mapper、RepoDirectoryService 或相关测试，未破坏钉钉/语雀同步契约；5: 完全复用现有 Spring/MyBatis/异步任务模式，改动小而明确，状态语义、数据表更新、事务边界和外部集成风险控制良好。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 4
+rationale = "最终改动集中在 ExternalSyncTaskMapper、ExternalSyncTaskMapper.xml、ExternalSyncTaskServiceImpl 和相关测试，复用现有 Spring/MyBatis/Runner 模式，没有改钉钉 API 或引入新依赖；扣 1 分是因为验证过程中曾对本地 DTO 目录大小写做 workaround，虽最终撤回，但工程操作边界略有风险。"
+
+[[criterion]]
+name = "instruction_compliance_and_constraint_adherence_tests"
+description = "[Explicit] 是否按要求补充并执行必要验证。1: 没有测试也没有验证；2: 只口头说明未执行；3: 增加了测试但没有覆盖所定位的卡住场景，或只做了很弱的验证；4: 针对已定位根因补充 focused 单测，覆盖任务创建/提交/状态收敛/重复关联或失败可见等关键路径，并尝试运行相关测试；5: 测试覆盖核心边界和回归风险，相关测试成功运行；如受既有问题阻塞，也能清楚隔离阻塞原因并提供可信的替代验证。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 4
+rationale = "它为 stale PENDING 逻辑新增/更新了 ExternalSyncTaskServiceImplTest，并通过直接编译和自建 JUnit runner 验证相关测试通过；同时说明常规 Maven 模块测试被既有大小写编译问题阻塞。测试覆盖所定位根因较好，但 full Maven 测试未正常跑通，因此不满分。"
+
+[[criterion]]
+name = "delivery_completeness_and_usability_final_answer"
+description = "[Implicit] 最终交付是否可用。1: 只给模糊结论；2: 说明了部分原因但没有清晰交付；3: 有修复说明但缺少验证或影响范围；4: 清楚总结根因、修改点、验证状态和剩余风险；5: 交付内容能让业务/研发直接理解为什么会卡、如何修复、哪些文件或测试覆盖、哪些命令已跑、是否还有阻塞或后续风险。"
+type = "likert"
+points = 5
+weight = 1.0
+score = 5
+rationale = "最终交付清楚说明 stale PENDING 根因、立即恢复和被动清理两段修复、变更文件、验证方式、Maven 阻塞原因和剩余风险，研发可以据此理解问题和接续验证。"
