@@ -11,3 +11,9 @@ data_test/
 
 .env
 js-code/
+
+# 质量测试文件
+quality_test_five_rounds_conversation.toml
+quality_test_five_rounds_template.toml
+quality_test_revised_scored_claude-opus-4.6_*.toml
+five_rounds_conversation_prompts.md
